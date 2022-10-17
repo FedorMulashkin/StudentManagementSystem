@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ru.mulashkin</groupId>
-    <artifactId>StudentManagmentSystem</artifactId>
+    <artifactId>StudentManagementSystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>StudentManagmentSystem</name>
-    <description>StudentManagmentSystem</description>
+    <name>StudentManagementSystem</name>
+    <description>StudentManagementSystem</description>
     <properties>
         <java.version>17</java.version>
     </properties>
