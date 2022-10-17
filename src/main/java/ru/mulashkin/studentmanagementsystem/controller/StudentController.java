@@ -3,10 +3,7 @@ package ru.mulashkin.studentmanagementsystem.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.mulashkin.studentmanagementsystem.entity.Student;
 import ru.mulashkin.studentmanagementsystem.service.StudentService;
 
@@ -42,8 +39,7 @@ public class StudentController {
 
     @PostMapping("/students/{id}")
     public String updateStudent(@PathVariable("id") Long id,
-                                @ModelAttribute("student") Student student,
-                                Model model){
+                                @ModelAttribute("student") Student student){
         Student existingStudent = studentService.getStudentById(id);
         existingStudent.setId(id);
         existingStudent.setFirstName(student.getFirstName());
@@ -52,6 +48,12 @@ public class StudentController {
 
         studentService.updateStudent(existingStudent);
 
+        return "redirect:/students";
+    }
+
+    @GetMapping("/students/{id}")
+    public String deleteStudent(@PathVariable("id") Long id){
+        studentService.deleteStudentById(id);
         return "redirect:/students";
     }
 }
